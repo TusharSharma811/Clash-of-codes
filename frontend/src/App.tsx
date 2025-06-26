@@ -1,7 +1,7 @@
 
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import Home from './pages/Landing'
+
 import Dashboard from './pages/Dashboard'
 import Leaderboard from './pages/Leaderboard'
 import LandingPage from './pages/Landing'

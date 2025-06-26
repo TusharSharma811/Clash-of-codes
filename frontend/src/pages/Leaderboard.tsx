@@ -317,7 +317,7 @@ export default function LeaderboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {filteredGlobalLeaderboard.map((user, index) => (
+                  {filteredGlobalLeaderboard.map((user) => (
                     <div
                       key={user.username}
                       className={`flex items-center justify-between p-4 rounded-lg transition-colors ${
@@ -384,7 +384,7 @@ export default function LeaderboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {filteredFriendsLeaderboard.map((user, index) => (
+                  {filteredFriendsLeaderboard.map((user) => (
                     <div
                       key={user.username}
                       className={`flex items-center justify-between p-4 rounded-lg transition-colors ${
