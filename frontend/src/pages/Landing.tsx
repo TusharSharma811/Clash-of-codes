@@ -1,33 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Trophy, Code, Users, Zap, Star, ArrowRight, Play } from "lucide-react"
-import {Link} from "react-router"
-const topCoders = [
-  { rank: 1, username: "CodeMaster", rating: 2847, wins: 156 },
-  { rank: 2, username: "AlgoNinja", rating: 2734, wins: 142 },
-  { rank: 3, username: "ByteWarrior", rating: 2689, wins: 138 },
-  { rank: 4, username: "DevGuru", rating: 2621, wins: 129 },
-  { rank: 5, username: "ScriptSage", rating: 2598, wins: 124 },
-]
 
-const testimonials = [
-  {
-    quote: "This platform transformed my coding skills. The real-time battles are addictive!",
-    author: "Sarah Chen",
-    role: "Software Engineer at Google",
-  },
-  {
-    quote: "Perfect for interview prep. The competitive environment pushes you to think faster.",
-    author: "Marcus Rodriguez",
-    role: "Full Stack Developer",
-  },
-  {
-    quote: "Love the AI-generated questions. Always fresh challenges to solve.",
-    author: "Priya Patel",
-    role: "CS Student at MIT",
-  },
-]
+import { Code, Users,Play } from "lucide-react"
+import {Link} from "react-router"
+
 
 export default function LandingPage() {
   return (
