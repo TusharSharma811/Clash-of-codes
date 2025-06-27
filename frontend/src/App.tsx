@@ -5,7 +5,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Dashboard from './pages/Dashboard'
 import Leaderboard from './pages/Leaderboard'
 import LandingPage from './pages/Landing'
-import AuthPage from './pages/Auth'
+
+import SignIn from './pages/Signin'
+import Register from './pages/Register'
 
 function App() {
 
@@ -23,8 +25,12 @@ function App() {
       element: <Leaderboard />,
     },
     {
-      path: '/auth',
-      element: <AuthPage />,
+      path: '/signin',
+      element: <SignIn />,
+    },
+    {
+      path: '/register',
+      element: <Register />,
     }
   ])
 

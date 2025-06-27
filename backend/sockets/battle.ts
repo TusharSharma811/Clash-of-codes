@@ -2,7 +2,7 @@
 import { Server } from 'socket.io';
 import Battle from '../models/Battle.js';
 
-export default function setupBattleSocket(server) {
+export default function setupBattleSocket(server:any) {
   const io = new Server(server, { cors: { origin: '*' } });
 
   io.on('connection', (socket) => {
