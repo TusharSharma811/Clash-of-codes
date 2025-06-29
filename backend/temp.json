@@ -1,0 +1,262 @@
+
+{
+"problems" : [
+  {
+    "title": "Two Sum",
+    "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
+    "inputFormat": "Line 1: An integer n (length of array)\nLine 2: n space-separated integers (the array)\nLine 3: An integer target",
+    "outputFormat": "Two space-separated integers representing the indices of the two numbers that add up to target",
+    "constraints": "2 ≤ nums.length ≤ 10^4\n-10^9 ≤ nums[i] ≤ 10^9\n-10^9 ≤ target ≤ 10^9\nOnly one valid answer exists.",
+    "sampleInput": "4\n2 7 11 15\n9",
+    "sampleOutput": "0 1",
+    "testCases": [
+      { "input": "4\n2 7 11 15\n9", "output": "0 1" },
+      { "input": "3\n3 2 4\n6", "output": "1 2" },
+      { "input": "2\n3 3\n6", "output": "0 1" },
+      { "input": "5\n1 2 3 4 5\n8", "output": "2 4" },
+      { "input": "6\n-1 -2 -3 -4 -5 0\n-8", "output": "2 4" },
+      { "input": "4\n0 4 3 0\n0", "output": "0 3" },
+      { "input": "5\n-3 4 3 90 5\n0", "output": "0 2" }
+    ],
+    "difficulty": "Easy"
+  },
+
+  {
+    "title": "Add Two Numbers",
+    "description": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+    "inputFormat": "Line 1: Space-separated digits of first number (in reverse order)\nLine 2: Space-separated digits of second number (in reverse order)",
+    "outputFormat": "Space-separated digits of the sum (in reverse order)",
+    "constraints": "The number of nodes in each linked list is in the range [1, 100]\n0 ≤ Node.val ≤ 9\nIt is guaranteed that the list represents a number that does not have leading zeros.",
+    "sampleInput": "2 4 3\n5 6 4",
+    "sampleOutput": "7 0 8",
+    "testCases": [
+      { "input": "2 4 3\n5 6 4", "output": "7 0 8" },
+      { "input": "0\n0", "output": "0" },
+      { "input": "9 9 9 9 9 9 9\n9 9 9 9", "output": "8 9 9 9 0 0 0 1" },
+      { "input": "5\n5", "output": "0 1" },
+      { "input": "1 2\n3 4 5", "output": "4 6 5" },
+      { "input": "9\n1 9 9 9 9 9 9 9 9 9", "output": "0 0 0 0 0 0 0 0 0 0 1" },
+      { "input": "2 4 9\n5 6 4 9", "output": "7 0 4 0 1" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "Longest Substring Without Repeating Characters",
+    "description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "inputFormat": "A single line containing a string s",
+    "outputFormat": "An integer representing the length of the longest substring without repeating characters",
+    "constraints": "0 ≤ s.length ≤ 5 × 10^4\ns consists of English letters, digits, symbols and spaces.",
+    "sampleInput": "abcabcbb",
+    "sampleOutput": "3",
+    "testCases": [
+      { "input": "abcabcbb", "output": "3" },
+      { "input": "bbbbb", "output": "1" },
+      { "input": "pwwkew", "output": "3" },
+      { "input": "", "output": "0" },
+      { "input": "au", "output": "2" },
+      { "input": "dvdf", "output": "3" },
+      { "input": "anviaj", "output": "5" },
+      { "input": "abcdef", "output": "6" },
+      { "input": "aab", "output": "2" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "Median of Two Sorted Arrays",
+    "description": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two arrays. The overall run time complexity should be O(log (m+n)).",
+    "inputFormat": "Line 1: Integer m (size of first array)\nLine 2: m space-separated integers (first sorted array)\nLine 3: Integer n (size of second array)\nLine 4: n space-separated integers (second sorted array)",
+    "outputFormat": "A floating point number representing the median (format to 5 decimal places)",
+    "constraints": "nums1.length == m\nnums2.length == n\n0 ≤ m ≤ 1000\n0 ≤ n ≤ 1000\n1 ≤ m + n ≤ 2000\n-10^6 ≤ nums1[i], nums2[i] ≤ 10^6",
+    "sampleInput": "2\n1 3\n2\n2 4",
+    "sampleOutput": "2.50000",
+    "testCases": [
+      { "input": "2\n1 3\n2\n2 4", "output": "2.50000" },
+      { "input": "2\n1 2\n2\n3 4", "output": "2.50000" },
+      { "input": "0\n\n1\n1", "output": "1.00000" },
+      { "input": "1\n2\n0\n", "output": "2.00000" },
+      { "input": "3\n1 2 3\n3\n4 5 6", "output": "3.50000" },
+      { "input": "4\n1 3 5 7\n4\n2 4 6 8", "output": "4.50000" },
+      { "input": "1\n1\n1\n2", "output": "1.50000" },
+      { "input": "5\n1 2 3 4 5\n0\n", "output": "3.00000" }
+    ],
+    "difficulty": "Hard"
+  },
+
+  {
+    "title": "Longest Palindromic Substring",
+    "description": "Given a string s, return the longest palindromic substring in s.",
+    "inputFormat": "A single line containing a string s",
+    "outputFormat": "The longest palindromic substring",
+    "constraints": "1 ≤ s.length ≤ 1000\ns consist of only digits and English letters.",
+    "sampleInput": "babad",
+    "sampleOutput": "bab",
+    "testCases": [
+      { "input": "babad", "output": "bab" },
+      { "input": "cbbd", "output": "bb" },
+      { "input": "a", "output": "a" },
+      { "input": "ac", "output": "a" },
+      { "input": "racecar", "output": "racecar" },
+      { "input": "noon", "output": "noon" },
+      { "input": "abcdef", "output": "a" },
+      { "input": "abacabad", "output": "abacaba" },
+      { "input": "bananas", "output": "anana" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "Zigzag Conversion",
+    "description": "The string \"PAYPALISHIRING\" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) And then read line by line: \"PAHNAPLSIIGYIR\". Write the code that will take a string and make this conversion given a number of rows.",
+    "inputFormat": "Line 1: A string s\nLine 2: An integer numRows",
+    "outputFormat": "The string after zigzag conversion",
+    "constraints": "1 ≤ s.length ≤ 1000\ns consists of English letters (lower-case and upper-case), ',' and '.'.\n1 ≤ numRows ≤ 1000",
+    "sampleInput": "PAYPALISHIRING\n3",
+    "sampleOutput": "PAHNAPLSIIGYIR",
+    "testCases": [
+      { "input": "PAYPALISHIRING\n3", "output": "PAHNAPLSIIGYIR" },
+      { "input": "PAYPALISHIRING\n4", "output": "PINALSIGYAHRPI" },
+      { "input": "A\n1", "output": "A" },
+      { "input": "AB\n1", "output": "AB" },
+      { "input": "ABCD\n2", "output": "ACBD" },
+      { "input": "ABCDE\n4", "output": "ABCED" },
+      { "input": "HELLO\n2", "output": "HLELO" },
+      { "input": "ZIGZAG\n3", "output": "ZAGGZI" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "Reverse Integer",
+    "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0. Assume the environment does not allow you to store 64-bit integers (signed or unsigned).",
+    "inputFormat": "A single integer x",
+    "outputFormat": "The reversed integer, or 0 if it overflows",
+    "constraints": "-2^31 ≤ x ≤ 2^31 - 1",
+    "sampleInput": "123",
+    "sampleOutput": "321",
+    "testCases": [
+      { "input": "123", "output": "321" },
+      { "input": "-123", "output": "-321" },
+      { "input": "120", "output": "21" },
+      { "input": "0", "output": "0" },
+      { "input": "1534236469", "output": "0" },
+      { "input": "-2147483648", "output": "0" },
+      { "input": "7", "output": "7" },
+      { "input": "-7", "output": "-7" },
+      { "input": "1000", "output": "1" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "String to Integer (atoi)",
+    "description": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function). The algorithm for myAtoi(string s) is as follows: Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either one; this determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored. Convert these digits into an integer (i.e. \"123\" -> 123, \"0032\" -> 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2). If the integer is out of the 32-bit signed integer range [-2^31, 2^31 - 1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integers greater than 2^31 - 1 should be clamped to 2^31 - 1. Return the integer as the final result.",
+    "inputFormat": "A single line containing a string s",
+    "outputFormat": "The converted integer",
+    "constraints": "0 ≤ s.length ≤ 200\ns consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.",
+    "sampleInput": "42",
+    "sampleOutput": "42",
+    "testCases": [
+      { "input": "42", "output": "42" },
+      { "input": "   -42", "output": "-42" },
+      { "input": "4193 with words", "output": "4193" },
+      { "input": "words and 987", "output": "0" },
+      { "input": "-91283472332", "output": "-2147483648" },
+      { "input": "91283472332", "output": "2147483647" },
+      { "input": "  +0 123", "output": "0" },
+      { "input": "", "output": "0" },
+      { "input": "+-12", "output": "0" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "Palindrome Number",
+    "description": "Given an integer x, return true if x is palindrome integer. An integer is a palindrome when it reads the same backward as forward.",
+    "inputFormat": "A single integer x",
+    "outputFormat": "true if x is a palindrome, false otherwise",
+    "constraints": "-2^31 ≤ x ≤ 2^31 - 1",
+    "sampleInput": "121",
+    "sampleOutput": "true",
+    "testCases": [
+      { "input": "121", "output": "true" },
+      { "input": "-121", "output": "false" },
+      { "input": "10", "output": "false" },
+      { "input": "0", "output": "true" },
+      { "input": "1", "output": "true" },
+      { "input": "1221", "output": "true" },
+      { "input": "12321", "output": "true" },
+      { "input": "123", "output": "false" },
+      { "input": "7", "output": "true" }
+    ],
+    "difficulty": "Easy"
+  },
+
+  {
+    "title": "Regular Expression Matching",
+    "description": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where: '.' Matches any single character.​​​​ '*' Matches zero or more of the preceding element. The matching should cover the entire input string (not partial).",
+    "inputFormat": "Line 1: A string s\nLine 2: A string p (pattern)",
+    "outputFormat": "true if s matches p, false otherwise",
+    "constraints": "1 ≤ s.length ≤ 20\n1 ≤ p.length ≤ 30\ns contains only lowercase English letters.\np contains only lowercase English letters, '.', and '*'.\nIt is guaranteed for each appearance of the character '*', there will be a previous valid character to match.",
+    "sampleInput": "aa\na",
+    "sampleOutput": "false",
+    "testCases": [
+      { "input": "aa\na", "output": "false" },
+      { "input": "aa\na*", "output": "true" },
+      { "input": "ab\n.*", "output": "true" },
+      { "input": "aab\nc*a*b", "output": "true" },
+      { "input": "mississippi\nmis*is*p*.", "output": "false" },
+      { "input": "ab\n.*c", "output": "false" },
+      { "input": "a\nab*", "output": "true" },
+      { "input": "bbbba\n.*a*a", "output": "true" },
+      { "input": "ab\na.*b", "output": "true" }
+    ],
+    "difficulty": "Hard"
+  },
+
+  {
+    "title": "Container With Most Water",
+    "description": "You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]). Find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store. Notice that you may not slant the container.",
+    "inputFormat": "Line 1: An integer n (length of array)\nLine 2: n space-separated integers representing heights",
+    "outputFormat": "An integer representing the maximum area",
+    "constraints": "n == height.length\n2 ≤ n ≤ 10^5\n0 ≤ height[i] ≤ 10^4",
+    "sampleInput": "9\n1 8 6 2 5 4 8 3 7",
+    "sampleOutput": "49",
+    "testCases": [
+      { "input": "9\n1 8 6 2 5 4 8 3 7", "output": "49" },
+      { "input": "2\n1 1", "output": "1" },
+      { "input": "2\n4 3", "output": "3" },
+      { "input": "2\n1 2", "output": "1" },
+      { "input": "6\n1 2 4 3 2 1", "output": "4" },
+      { "input": "4\n2 3 4 5", "output": "6" },
+      { "input": "3\n1 3 2", "output": "2" },
+      { "input": "5\n5 4 3 2 1", "output": "6" }
+    ],
+    "difficulty": "Medium"
+  },
+
+  {
+    "title": "Integer to Roman",
+    "description": "Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. Given an integer, convert it to a roman numeral.",
+    "inputFormat": "A single integer num",
+    "outputFormat": "The roman numeral representation of num",
+    "constraints": "1 ≤ num ≤ 3999",
+    "sampleInput": "3",
+    "sampleOutput": "III",
+    "testCases": [
+      { "input": "3", "output": "III" },
+      { "input": "4", "output": "IV" },
+      { "input": "9", "output": "IX" },
+      { "input": "58", "output": "LVIII" },
+      { "input": "1994", "output": "MCMXCIV" },
+      { "input": "27", "output": "XXVII" },
+      { "input": "1000", "output": "M" },
+      { "input": "3999", "output": "MMMCMXCIX" },
+      { "input": "444", "output": "CDXLIV" }
+    ],
+    "difficulty": "Medium"
+  }
+]
+
+}

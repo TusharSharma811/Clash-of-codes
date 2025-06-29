@@ -4,10 +4,12 @@ import http from 'http';
 import { Server } from 'socket.io';
 import dotenv from 'dotenv';
 import connectDB from './config/db.ts';
-
+import redis from './config/redis.ts';
 import authRoutes from './routes/auth.ts';
 import battleRoutes from './routes/battles.ts';
 import problemRoutes from './routes/problems.ts';
+import setupSocketHandlers from './sockets/index.ts';
+import submissionRouter from './routes/submission.ts';
 
 dotenv.config();
 
@@ -22,11 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/battles', battleRoutes);
 app.use('/api/problems', problemRoutes);
+app.use("/api/code", submissionRouter);
+setupSocketHandlers(io);
 
-io.on('connection', (socket) => {
-  console.log('New socket connection:', socket.id);
+redis.on('connect', () => {
+  console.log('Connected to Redis');
 });
-
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   connectDB()

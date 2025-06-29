@@ -1,25 +1,27 @@
-import { useNavigate } from "react-router";
 
 export const handleRegister = async (username: string, email: string, password: string): Promise<void> => {
   // const navigate = useNavigate();
   console.log(`Registering user: ${username}, Email: ${email}`);
   
-  const response = await fetch('/server/api/auth/register', {
+  const response = await fetch('server/api/auth/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ username, email, password }),
   });
-  console.log(`Response status: ${response.status} ${await response.json()}`);
-
-  // response.ok ? navigate('/signin') : null ;
-  response.ok?window.location.href = '/' : null ;
+   const data = await response.json();
+  console.log(`Response status: ${response.status} ${JSON.stringify(data)}`);
 
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.error || 'Registration failed');
+    
+    throw new Error(data.error || 'Registration failed');
   }
+  // response.ok ? navigate('/signin') : null ;
+  localStorage.setItem('token', data.token);
+  response.ok?window.location.href = '/' : null ;
+
+  
 
   return response.json();
 }
@@ -35,16 +37,20 @@ export const handleLogin = async (email: string, password: string): Promise<void
     },
     body: JSON.stringify({ email, password }),
   });
-  console.log(`Response status: ${response.status} ${await response.json()}`);
+  const data = await response.json();
+  console.log(`Response data: ${JSON.stringify(data)}`);
+  console.log(`Response status: ${response.status} ${JSON.stringify(data)}`);
 
   // const navigate = useNavigate();
   // response.ok ? navigate('/') : null ;
-  response.ok?window.location.href = '/' : null ;
-
-  if (!response.ok) {
+   if (!response.ok) {
     const errorData = await response.json();
     throw new Error(errorData.error || 'Login failed');
   }
+  localStorage.setItem('token', data.token);
+  response.ok?window.location.href = '/' : null ;
+
+ 
 
   return response.json();
 }

@@ -8,21 +8,30 @@ import LandingPage from './pages/Landing'
 
 import SignIn from './pages/Signin'
 import Register from './pages/Register'
+import AddQuestionPage from './pages/Addquestion'
+import Playgroundpage from './pages/Playground'
+import Checklogin from './components/Checklogin'
+import Home from './pages/Home'
+import { useSocketConnect } from './Hooks/useSocketconnect'
+import { useUser } from './Hooks/useUser'
 
 function App() {
+
+  useSocketConnect();
+  useUser();
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <LandingPage />,
+      element:<> {localStorage.getItem("token") ?<Home />: <LandingPage />}</>,
     },
     {
       path: '/dashboard',
-      element: <Dashboard />,
+      element: <Checklogin><Dashboard /></Checklogin>,
     },
     {
       path: '/leaderboard',
-      element: <Leaderboard />,
+      element: <Checklogin><Leaderboard /></Checklogin>,
     },
     {
       path: '/signin',
@@ -31,6 +40,14 @@ function App() {
     {
       path: '/register',
       element: <Register />,
+    },
+    {
+      path:'addquestion',
+      element: <Checklogin><AddQuestionPage /></Checklogin>
+    },
+    {
+      path: '/playground/:id',
+      element: <Checklogin><Playgroundpage /></Checklogin>,
     }
   ])
 

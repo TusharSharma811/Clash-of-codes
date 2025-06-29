@@ -1,4 +1,3 @@
-"use client"
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
@@ -8,6 +7,7 @@ import { Separator } from "@/components/ui/separator"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Clock, User, Code, Send, Trophy, AlertCircle, CheckCircle, Loader2 } from "lucide-react"
 import { Link } from "react-router"
+import { useBattleStore } from "@/Store/usebattlestore"
 
 const sampleQuestion = {
   title: "Two Sum",
@@ -47,6 +47,16 @@ export default function BattlePage() {
   const [opponentStatus, setOpponentStatus] = useState("Thinking...")
   const [battleResult, setBattleResult] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const {roomId , question, player, opponent} = useBattleStore() 
+  useEffect(() => {
+    if (!roomId || !question || !player || !opponent) {
+      console.error("Battle data is not set properly in BattlePage");
+      return;
+    }
+    console.log("Battle data:", { roomId, question, player, opponent });
+  }, [roomId, question, player, opponent]);
+
+  
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -59,6 +69,7 @@ export default function BattlePage() {
       })
     }, 1000)
 
+    
     // Simulate opponent status changes
     const statusTimer = setInterval(() => {
       const statuses = ["Thinking...", "Typing...", "Testing...", "Debugging..."]

@@ -1,35 +1,38 @@
-import { Schema, model, Document, Types } from 'mongoose';
-
-export interface ISubmission {
-  user: Types.ObjectId;
-  code: string;
-  language: string;
-  passed: boolean;
-  time: Date;
-}
+// models/Battle.ts
+import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IBattle extends Document {
-  participants: Types.ObjectId[];
-  problem: Types.ObjectId;
-  status: 'waiting' | 'ongoing' | 'completed';
-  winner: Types.ObjectId | null;
-  submissions: ISubmission[];
+  roomId: string;
+  players: {
+    userId: string;
+    username: string;
+    score: number;
+    status: 'pending' | 'won' | 'lost' | 'left';
+  }[];
+  questionId: string;
+  startedAt: Date;
+  endedAt?: Date;
+  winnerId?: string;
 }
 
-const battleSchema = new Schema<IBattle>({
-  participants: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  problem: { type: Schema.Types.ObjectId, ref: 'Problem' },
-  status: { type: String, enum: ['waiting', 'ongoing', 'completed'], default: 'waiting' },
-  winner: { type: Schema.Types.ObjectId, ref: 'User', default: null },
-  submissions: [
+const BattleSchema: Schema = new Schema({
+  roomId: { type: String, required: true, unique: true },
+  players: [
     {
-      user: { type: Schema.Types.ObjectId, ref: 'User' },
-      code: String,
-      language: String,
-      passed: Boolean,
-      time: Date,
-    }
-  ]
-}, { timestamps: true });
+      userId: { type: String, required: true },
+      username: { type: String, required: true },
+      score: { type: Number, default: 0 },
+      status: {
+        type: String,
+        enum: ['pending', 'won', 'lost', 'left'],
+        default: 'pending',
+      },
+    },
+  ],
+  questionId: { type: String, required: true },
+  startedAt: { type: Date, default: Date.now },
+  endedAt: { type: Date },
+  winnerId: { type: String },
+});
 
-export default model<IBattle>('Battle', battleSchema);
+export default mongoose.model<IBattle>('Battle', BattleSchema);

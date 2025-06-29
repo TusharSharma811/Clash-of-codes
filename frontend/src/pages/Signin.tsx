@@ -7,9 +7,12 @@ import { Label } from "@/components/ui/label"
 import { Code, ArrowLeft, Eye, EyeOff } from "lucide-react"
 import { Link } from "react-router"
 import { useState } from "react"
+import { handleLogin } from "@/api/auth"
 
 export default function SignIn() {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false) ;
+  const [email, setEmail] = useState("") ;
+  const [password, setPassword] = useState("") ;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
@@ -55,6 +58,8 @@ export default function SignIn() {
                   <Input
                     id="email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     className="bg-white/10 border-cyan-500/30 text-white placeholder:text-gray-400 focus:border-cyan-400 focus:ring-cyan-400"
                   />
@@ -67,6 +72,8 @@ export default function SignIn() {
                     <Input
                       id="password"
                       type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
                       className="bg-white/10 border-cyan-500/30 text-white placeholder:text-gray-400 focus:border-cyan-400 focus:ring-cyan-400 pr-10"
                     />
@@ -91,7 +98,7 @@ export default function SignIn() {
                     Forgot password?
                   </Link>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700 text-white py-3 text-lg font-medium">
+                <Button onClick={(e)=>{e.preventDefault(); handleLogin(email , password)}} className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700 text-white py-3 text-lg font-medium">
                   Sign In
                 </Button>
               </form>

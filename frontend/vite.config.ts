@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+   
     proxy: {
       "/server": {
         target: "http://localhost:5000",
