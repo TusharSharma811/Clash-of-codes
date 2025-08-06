@@ -40,7 +40,7 @@ const globalLeaderboard = [
     avatar: "/placeholder.svg?height=40&width=40",
   },
   {
-    rank: 4,
+    rank: 5,
     username: "DevGuru",
     rating: 2621,
     wins: 129,
@@ -49,7 +49,7 @@ const globalLeaderboard = [
     avatar: "/placeholder.svg?height=40&width=40",
   },
   {
-    rank: 5,
+    rank: 6,
     username: "ScriptSage",
     rating: 2598,
     wins: 124,
